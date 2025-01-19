@@ -6,7 +6,9 @@ public class OperationsOnInputDoubles {
 
     public double inputDouble() {
         Input input = new Input();
-        return input.nextDouble();
+        double a =  input.nextDouble();
+        input.close();
+        return a;
     }
 
     public double addAndSquare(double a, double b) {
