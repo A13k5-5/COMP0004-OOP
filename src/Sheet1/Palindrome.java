@@ -1,5 +1,7 @@
 package Sheet1;
 
+import java.util.ArrayList;
+
 public class Palindrome {
     private String reverse(final String s) {
         String result = new String();
@@ -24,6 +26,20 @@ public class Palindrome {
         return input;
     }
 
+    private ArrayList<String> getFileInput(String fileName) {
+        if (!FileInput.exists(fileName)) {
+            System.err.println("File" + fileName + " does not exist.");
+            System.exit(1);
+        }
+        FileInput in = new FileInput(fileName);
+        ArrayList<String> words = new ArrayList<>();
+        while (in.hasNextLine()) {
+            words.add(in.nextLine().strip());
+        }
+        in.close();
+        return words;
+    }
+
     private String tidyString(final String s) {
         return s.replaceAll(" ", "").replaceAll("[.,!?]", "").toLowerCase();
     }
@@ -36,8 +52,15 @@ public class Palindrome {
         System.out.println("It is not a palindrome");
     }
 
+    public void testForPalindrome(ArrayList<String> words) {
+        for (String word : words) {
+            System.out.println(word + " " + check(tidyString(word), tidyString(word)));
+        }
+    }
+
     public void go() {
-        testForPalindrome(getInput());
+//        testForPalindrome(getInput());
+        testForPalindrome(getFileInput("palindromes.txt"));
     }
 
     public static void main(String[] args) {
