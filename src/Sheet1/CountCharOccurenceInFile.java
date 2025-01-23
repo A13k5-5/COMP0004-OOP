@@ -22,12 +22,11 @@ public class CountCharOccurenceInFile {
             }
         }
 
+        in.close();
+
         for (Map.Entry<Character, Integer> entry : charCountMap.entrySet()) {
             System.out.println(entry.getKey() + " " + entry.getValue());
         }
-
-        in.close();
-
 
     }
 
