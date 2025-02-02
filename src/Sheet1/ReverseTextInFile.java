@@ -1,8 +1,5 @@
 package Sheet1;
 
-import Sheet1.FileInput;
-import Sheet1.FileOutput;
-
 import java.util.ArrayList;
 
 public class ReverseTextInFile {
